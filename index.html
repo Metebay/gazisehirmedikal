@@ -130,97 +130,208 @@
 
         <!-- === ANASAYFA === -->
         <div id="page-home" class="page-section fade-in">
-            <!-- Hero Alanı -->
-            <!-- Mobilde h-auto ve py-16 ile içerik kadar uzamasını sağladık, masaüstünde fixed h-[600px] -->
-            <section class="relative bg-gazi-dark text-white h-auto py-16 md:py-0 md:h-[600px] flex items-center">
+            <!-- Hero Alanı - Daha Modern ve Dolu -->
+            <section class="relative bg-gazi-dark text-white min-h-[600px] flex items-center overflow-hidden">
+                <!-- Arka Plan Görseli -->
                 <div class="absolute inset-0 z-0">
-                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Medikal" class="w-full h-full object-cover opacity-30">
+                    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Medikal Showroom" class="w-full h-full object-cover opacity-20">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
                 </div>
-                <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
-                    <div class="max-w-2xl border-l-4 border-gazi-red pl-4 md:pl-6">
-                        <span class="inline-block bg-gazi-red text-white text-xs font-bold px-2 py-1 mb-3 rounded">GAZİANTEP YETKİLİ BAYİ</span>
-                        <!-- Mobilde text-3xl, Masaüstünde text-5xl -->
-                        <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">Solunum Sağlığınız<br>Güvence Altında</h1>
-                        <p class="text-base md:text-lg text-gray-300 mb-6">Dünya lideri markaların orijinal cihazları, yedek parça ve teknik servis garantisiyle Gazişehir Medikal'de.</p>
-                        
-                        <!-- Marka Logoları (Metin Bazlı Temsil) -->
-                        <div class="mb-8 pt-6 border-t border-white/20">
-                            <p class="text-xs text-gray-400 uppercase tracking-widest mb-3">RESMİ YETKİLİ SATIŞ NOKTASI</p>
-                            <div class="flex flex-wrap gap-4 md:gap-6 text-xl md:text-2xl font-bold text-white opacity-90 items-center">
-                                <span>ResMed</span>
-                                <span class="text-gazi-red text-sm"><i class="fas fa-circle"></i></span>
-                                <span>PHILIPS</span>
-                                <span class="text-gazi-red text-sm"><i class="fas fa-circle"></i></span>
-                                <span>Löwenstein</span>
+                
+                <div class="max-w-7xl mx-auto px-4 relative z-10 w-full py-16 md:py-0">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <!-- Sol Taraf: Metin -->
+                        <div class="space-y-6">
+                            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full">
+                                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                                <span class="text-xs font-bold tracking-wide uppercase">Gaziantep Yetkili Bayi & Servis</span>
+                            </div>
+                            
+                            <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+                                Sağlıklı Bir Nefes,<br>
+                                <span class="text-gazi-red">Konforlu Bir Uyku.</span>
+                            </h1>
+                            
+                            <p class="text-lg text-gray-300 leading-relaxed max-w-lg">
+                                Uyku apnesi ve solunum tedavinizde dünya lideri <strong>ResMed, Philips ve Löwenstein</strong> cihazlarıyla yaşam kalitenizi artırıyoruz.
+                            </p>
+    
+                            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                                <button onclick="showPage('products')" class="btn-primary flex items-center justify-center gap-2">
+                                    ÜRÜNLERİ İNCELE <i class="fas fa-arrow-right"></i>
+                                </button>
+                                <a href="https://wa.me/905550000000" class="btn-outline border-white text-white hover:bg-white hover:text-gazi-dark flex items-center justify-center gap-2">
+                                    <i class="fab fa-whatsapp text-xl"></i> WHATSAPP DESTEK
+                                </a>
+                            </div>
+
+                            <!-- Alt Güven İkonları -->
+                            <div class="pt-8 flex items-center gap-6 text-sm text-gray-400 border-t border-white/10 mt-8">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-shield-alt text-gazi-red text-xl"></i>
+                                    <span>2 Yıl Garanti</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-tools text-gazi-red text-xl"></i>
+                                    <span>Teknik Servis</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-check-circle text-gazi-red text-xl"></i>
+                                    <span>SGK Anlaşmalı</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <button onclick="showPage('products')" class="btn-primary w-full sm:w-auto">ÜRÜNLERİ İNCELE</button>
-                            <a href="https://wa.me/905550000000" class="border-2 border-white text-white px-6 py-3 rounded hover:bg-white hover:text-black transition uppercase font-bold text-sm tracking-wide text-center w-full sm:w-auto">
-                                <i class="fab fa-whatsapp mr-2"></i> WhatsApp Destek
-                            </a>
+                        <!-- Sağ Taraf: Görsel / Ürün Kolajı (Temsili) -->
+                        <div class="hidden md:block relative">
+                             <!-- Dekoratif Daire -->
+                             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gazi-red/20 rounded-full blur-3xl -z-10"></div>
+                             <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Solunum Cihazı" class="rounded-2xl shadow-2xl border-4 border-white/10 w-full max-w-md mx-auto transform rotate-2 hover:rotate-0 transition duration-500">
+                             
+                             <!-- Floating Badge -->
+                             <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                                 <div class="bg-green-100 p-3 rounded-full text-green-600">
+                                     <i class="fas fa-truck text-xl"></i>
+                                 </div>
+                                 <div>
+                                     <p class="text-xs text-gray-500 font-bold uppercase">Gaziantep İçi</p>
+                                     <p class="text-sm font-bold text-gray-900">Aynı Gün Teslimat</p>
+                                 </div>
+                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Hizmetler -->
-            <section class="py-12 md:py-16 bg-white">
-                <div class="max-w-7xl mx-auto px-4">
-                    <!-- Mobilde normal akış (mt-8), Masaüstünde yukarı kaydırma (-mt-24) -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-0 md:-mt-24 relative z-20">
-                        <div class="bg-white p-8 shadow-lg border-t-4 border-gazi-red text-center rounded-lg md:rounded-none">
-                            <div class="text-4xl text-gazi-red mb-4"><i class="fas fa-certificate"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Yetkili Bayi Güvencesi</h3>
-                            <p class="text-gray-600 text-sm">Satın aldığınız tüm ResMed, Philips ve Löwenstein cihazları 2 yıl resmi distribütör garantilidir.</p>
-                        </div>
-                        <div class="bg-gazi-red p-8 shadow-lg text-white text-center rounded-lg md:rounded-none">
-                            <div class="text-4xl text-white mb-4"><i class="fas fa-headset"></i></div>
-                            <h3 class="text-xl font-bold mb-2">7/24 Teknik Destek</h3>
-                            <p class="text-white/90 text-sm">Cihaz kurulumu, maske uyumu ve acil durumlarda kesintisiz destek hattı.</p>
-                        </div>
-                        <div class="bg-white p-8 shadow-lg border-t-4 border-gazi-dark text-center rounded-lg md:rounded-none">
-                            <div class="text-4xl text-gazi-dark mb-4"><i class="fas fa-shipping-fast"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Hızlı Teslimat</h3>
-                            <p class="text-gray-600 text-sm">Gaziantep içi aynı gün teslimat ve yerinde uygulamalı eğitim hizmeti.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Markalarımız Bölümü -->
-            <section class="py-12 md:py-16 bg-gray-50">
+            <!-- Kategori Vitrini (Yeni Bölüm) -->
+            <section class="py-16 bg-gray-50">
                 <div class="max-w-7xl mx-auto px-4">
                     <div class="text-center mb-12">
-                        <h2 class="text-3xl font-bold text-gazi-dark">Markalarımız</h2>
-                        <div class="w-16 h-1 bg-gazi-red mx-auto mt-3"></div>
-                        <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-sm md:text-base">
-                            Gazişehir Medikal olarak, solunum tedavisinde dünya standardını belirleyen <strong class="text-gazi-dark">ResMed</strong>, <strong class="text-gazi-dark">Philips Respironics</strong> ve <strong class="text-gazi-dark">Löwenstein (Weinmann)</strong> markalarının <span class="text-gazi-red font-bold underline">Yetkili Bayisi</span> olarak hizmet vermekteyiz.
-                        </p>
+                        <span class="text-gazi-red font-bold text-sm uppercase tracking-wider">Çözümlerimiz</span>
+                        <h2 class="text-3xl font-bold text-gazi-dark mt-2">İhtiyacınıza Uygun Tedavi</h2>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <!-- ResMed Card -->
-                        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition text-center border border-gray-100 cursor-pointer" onclick="showPage('products')">
-                            <h3 class="text-2xl font-extrabold text-blue-900 mb-2">ResMed</h3>
-                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded font-bold mb-4">YETKİLİ BAYİ</span>
-                            <p class="text-gray-500 text-sm">Uyku apnesi tedavisinde öncü teknoloji. AirSense serisi cihazlar ve AirFit maskeler.</p>
-                        </div>
-                        
-                        <!-- Philips Card -->
-                        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition text-center border border-gray-100 cursor-pointer" onclick="showPage('products')">
-                            <h3 class="text-2xl font-extrabold text-blue-600 mb-2">PHILIPS</h3>
-                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded font-bold mb-4">YETKİLİ BAYİ</span>
-                            <p class="text-gray-500 text-sm">Respironics teknolojisi ile geliştirilmiş DreamStation CPAP ve BiPAP çözümleri.</p>
+                        <!-- Kategori 1 -->
+                        <div class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer" onclick="showPage('products')">
+                            <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Uyku Apnesi" class="w-full h-80 object-cover transition transform group-hover:scale-110 duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 p-8">
+                                <i class="fas fa-bed text-3xl text-gazi-red mb-3"></i>
+                                <h3 class="text-2xl font-bold text-white mb-2">Uyku Apnesi</h3>
+                                <p class="text-gray-300 text-sm mb-4">Otomatik CPAP, BPAP cihazları ve konforlu maske çözümleri.</p>
+                                <span class="text-white font-bold text-sm border-b-2 border-gazi-red pb-1">İncele</span>
+                            </div>
                         </div>
 
-                        <!-- Lowenstein Card -->
-                        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition text-center border border-gray-100 cursor-pointer" onclick="showPage('products')">
-                            <h3 class="text-2xl font-extrabold text-teal-700 mb-2">Löwenstein</h3>
-                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded font-bold mb-4">YETKİLİ BAYİ</span>
-                            <p class="text-gray-500 text-sm">Alman mühendisliği, Weinmann tecrübesi. Prisma serisi ile sessiz ve konforlu tedavi.</p>
+                        <!-- Kategori 2 -->
+                        <div class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer" onclick="showPage('products')">
+                            <img src="https://images.unsplash.com/photo-1579684385180-1ea55f9f7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Oksijen Tedavisi" class="w-full h-80 object-cover transition transform group-hover:scale-110 duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 p-8">
+                                <i class="fas fa-wind text-3xl text-gazi-red mb-3"></i>
+                                <h3 class="text-2xl font-bold text-white mb-2">Oksijen Tedavisi</h3>
+                                <p class="text-gray-300 text-sm mb-4">Ev tipi oksijen konsantratörleri ve taşınabilir oksijen çözümleri.</p>
+                                <span class="text-white font-bold text-sm border-b-2 border-gazi-red pb-1">İncele</span>
+                            </div>
                         </div>
+
+                        <!-- Kategori 3 -->
+                        <div class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer" onclick="showPage('products')">
+                            <img src="https://images.unsplash.com/photo-1584362917165-526a968579e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Yedek Parça" class="w-full h-80 object-cover transition transform group-hover:scale-110 duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 p-8">
+                                <i class="fas fa-mask text-3xl text-gazi-red mb-3"></i>
+                                <h3 class="text-2xl font-bold text-white mb-2">Maske & Aksesuar</h3>
+                                <p class="text-gray-300 text-sm mb-4">Her yüz tipine uygun maskeler, hortumlar ve filtreler.</p>
+                                <span class="text-white font-bold text-sm border-b-2 border-gazi-red pb-1">İncele</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kurumsal Özet / Neden Biz (Yeni Bölüm) -->
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="flex flex-col lg:flex-row items-center gap-16">
+                        <div class="lg:w-1/2">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Gazişehir Ekip" class="rounded-lg shadow-xl w-full">
+                                <div class="absolute -bottom-10 -right-10 bg-gazi-dark text-white p-8 rounded-lg shadow-2xl hidden md:block">
+                                    <p class="text-4xl font-bold text-gazi-red mb-1">15+</p>
+                                    <p class="text-sm font-semibold tracking-wide">YILLIK TECRÜBE</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 space-y-6">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gazi-dark">Gaziantep'in En Güvenilir Medikal Çözüm Ortağı</h2>
+                            <p class="text-gray-600 leading-relaxed text-lg">
+                                Gazişehir Medikal olarak sadece cihaz satmıyoruz; size kesintisiz bir nefes ve sağlıklı bir uyku vadediyoruz. Uzman kadromuzla cihaz kurulumundan, periyodik bakıma kadar her adımda yanınızdayız.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-gazi-red shrink-0">
+                                        <i class="fas fa-user-md"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gazi-dark">Uzman Danışmanlık</h4>
+                                        <p class="text-sm text-gray-500">Doğru cihaz seçimi için profesyonel destek.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-gazi-red shrink-0">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gazi-dark">Yedek Cihaz</h4>
+                                        <p class="text-sm text-gray-500">Arıza durumunda mağduriyet yaşatmayan hizmet.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-6">
+                                <button onclick="showPage('corporate')" class="text-gazi-red font-bold hover:text-gazi-dark transition flex items-center gap-2">
+                                    HAKKIMIZDA DAHA FAZLA <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Markalarımız Bölümü (Mevcut Tasarımın İyileştirilmiş Hali) -->
+            <section class="py-16 bg-gray-50 border-t border-gray-200">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-center mb-10">
+                        <h2 class="text-2xl font-bold text-gazi-dark text-opacity-70">ÇÖZÜM ORTAKLARIMIZ</h2>
+                    </div>
+                    
+                    <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-70 grayscale hover:grayscale-0 transition duration-500">
+                        <!-- ResMed Logo (Text Representation) -->
+                        <div class="text-3xl md:text-4xl font-extrabold text-blue-900 cursor-pointer hover:scale-110 transition" onclick="showPage('products')">ResMed</div>
+                        
+                        <!-- Philips Logo (Text Representation) -->
+                        <div class="text-3xl md:text-4xl font-extrabold text-blue-600 cursor-pointer hover:scale-110 transition" onclick="showPage('products')">PHILIPS</div>
+                        
+                        <!-- Lowenstein Logo (Text Representation) -->
+                        <div class="text-3xl md:text-4xl font-extrabold text-teal-700 cursor-pointer hover:scale-110 transition" onclick="showPage('products')">Löwenstein</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- CTA Bant -->
+            <section class="bg-gazi-red py-12">
+                <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                    <div class="text-white">
+                        <h2 class="text-2xl md:text-3xl font-bold mb-2">Hemen Cihaz Kiralama & Satın Alma İçin Arayın</h2>
+                        <p class="opacity-90">Gaziantep içi 2 saatte teslimat ve ücretsiz kurulum fırsatı.</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="tel:+903420000000" class="bg-white text-gazi-red px-8 py-3 rounded font-bold shadow-lg hover:bg-gray-100 transition">
+                            <i class="fas fa-phone-alt mr-2"></i> HEMEN ARA
+                        </a>
                     </div>
                 </div>
             </section>
