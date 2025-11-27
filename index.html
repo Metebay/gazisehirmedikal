@@ -45,6 +45,8 @@
             text-transform: uppercase;
             font-size: 14px;
             letter-spacing: 0.5px;
+            display: inline-block;
+            text-align: center;
         }
         .btn-primary:hover { background-color: #b0151b; }
 
@@ -58,8 +60,16 @@
             text-transform: uppercase;
             font-size: 14px;
             letter-spacing: 0.5px;
+            display: inline-block;
+            text-align: center;
         }
         .btn-outline:hover { background-color: #1A1A1A; color: white; }
+
+        /* Mobil Menü Animasyonu */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800 flex flex-col min-h-screen">
@@ -80,10 +90,11 @@
     <!-- Header -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center h-24">
+            <div class="flex justify-between items-center h-20 md:h-24">
                 <!-- Logo -->
                 <div class="flex items-center cursor-pointer" onclick="showPage('home')">
-                    <img src="https://i.hizliresim.com/m20r94e.png" alt="Gazişehir Medikal" class="h-16">
+                    <!-- Mobilde h-10, Masaüstünde h-16 -->
+                    <img src="https://i.hizliresim.com/m20r94e.png" alt="Gazişehir Medikal" class="h-10 md:h-16">
                 </div>
 
                 <!-- Desktop Menü -->
@@ -95,17 +106,21 @@
                 </nav>
 
                 <!-- Mobil Menü Butonu -->
-                <button class="md:hidden text-2xl text-gazi-dark" onclick="toggleMenu()">
+                <button class="md:hidden text-2xl text-gazi-dark p-2" onclick="toggleMenu()">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden bg-white border-t md:hidden">
-            <div class="flex flex-col p-4 space-y-2">
-                <button onclick="showPage('home')" class="text-left py-2 font-semibold">ANASAYFA</button>
-                <button onclick="showPage('corporate')" class="text-left py-2 font-semibold">KURUMSAL</button>
-                <button onclick="showPage('products')" class="text-left py-2 font-semibold">ÜRÜNLER</button>
-                <button onclick="showPage('contact')" class="text-left py-2 font-semibold">İLETİŞİM</button>
+        <div id="mobile-menu" class="hidden bg-white border-t md:hidden shadow-lg absolute w-full z-40">
+            <div class="flex flex-col p-4 space-y-3">
+                <button onclick="showPage('home')" class="text-left py-3 px-2 font-semibold border-b border-gray-100 hover:bg-gray-50 text-gazi-dark">ANASAYFA</button>
+                <button onclick="showPage('corporate')" class="text-left py-3 px-2 font-semibold border-b border-gray-100 hover:bg-gray-50 text-gazi-dark">KURUMSAL</button>
+                <button onclick="showPage('products')" class="text-left py-3 px-2 font-semibold border-b border-gray-100 hover:bg-gray-50 text-gazi-dark">ÜRÜNLER</button>
+                <button onclick="showPage('contact')" class="text-left py-3 px-2 font-semibold hover:bg-gray-50 text-gazi-dark">İLETİŞİM</button>
+                <!-- Mobilde üst bilgi çubuğu olmadığı için önemli bilgileri buraya ekleyelim -->
+                <div class="pt-2 text-sm text-gray-500 flex flex-col gap-2">
+                     <a href="tel:+903420000000" class="flex items-center"><i class="fas fa-phone-alt text-gazi-red mr-2"></i> +90 (342) 000 00 00</a>
+                </div>
             </div>
         </div>
     </header>
@@ -116,20 +131,22 @@
         <!-- === ANASAYFA === -->
         <div id="page-home" class="page-section fade-in">
             <!-- Hero Alanı -->
-            <section class="relative bg-gazi-dark text-white h-[600px] flex items-center">
+            <!-- Mobilde h-auto ve py-16 ile içerik kadar uzamasını sağladık, masaüstünde fixed h-[600px] -->
+            <section class="relative bg-gazi-dark text-white h-auto py-16 md:py-0 md:h-[600px] flex items-center">
                 <div class="absolute inset-0 z-0">
                     <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Medikal" class="w-full h-full object-cover opacity-30">
                 </div>
                 <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
-                    <div class="max-w-2xl border-l-4 border-gazi-red pl-6">
+                    <div class="max-w-2xl border-l-4 border-gazi-red pl-4 md:pl-6">
                         <span class="inline-block bg-gazi-red text-white text-xs font-bold px-2 py-1 mb-3 rounded">GAZİANTEP YETKİLİ BAYİ</span>
-                        <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Solunum Sağlığınız<br>Güvence Altında</h1>
-                        <p class="text-lg text-gray-300 mb-6">Dünya lideri markaların orijinal cihazları, yedek parça ve teknik servis garantisiyle Gazişehir Medikal'de.</p>
+                        <!-- Mobilde text-3xl, Masaüstünde text-5xl -->
+                        <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">Solunum Sağlığınız<br>Güvence Altında</h1>
+                        <p class="text-base md:text-lg text-gray-300 mb-6">Dünya lideri markaların orijinal cihazları, yedek parça ve teknik servis garantisiyle Gazişehir Medikal'de.</p>
                         
                         <!-- Marka Logoları (Metin Bazlı Temsil) -->
                         <div class="mb-8 pt-6 border-t border-white/20">
                             <p class="text-xs text-gray-400 uppercase tracking-widest mb-3">RESMİ YETKİLİ SATIŞ NOKTASI</p>
-                            <div class="flex flex-wrap gap-6 text-2xl font-bold text-white opacity-90 items-center">
+                            <div class="flex flex-wrap gap-4 md:gap-6 text-xl md:text-2xl font-bold text-white opacity-90 items-center">
                                 <span>ResMed</span>
                                 <span class="text-gazi-red text-sm"><i class="fas fa-circle"></i></span>
                                 <span>PHILIPS</span>
@@ -138,9 +155,9 @@
                             </div>
                         </div>
 
-                        <div class="flex gap-4">
-                            <button onclick="showPage('products')" class="btn-primary">ÜRÜNLERİ İNCELE</button>
-                            <a href="https://wa.me/905550000000" class="border-2 border-white text-white px-6 py-3 rounded hover:bg-white hover:text-black transition uppercase font-bold text-sm tracking-wide">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button onclick="showPage('products')" class="btn-primary w-full sm:w-auto">ÜRÜNLERİ İNCELE</button>
+                            <a href="https://wa.me/905550000000" class="border-2 border-white text-white px-6 py-3 rounded hover:bg-white hover:text-black transition uppercase font-bold text-sm tracking-wide text-center w-full sm:w-auto">
                                 <i class="fab fa-whatsapp mr-2"></i> WhatsApp Destek
                             </a>
                         </div>
@@ -149,20 +166,21 @@
             </section>
 
             <!-- Hizmetler -->
-            <section class="py-16 bg-white">
+            <section class="py-12 md:py-16 bg-white">
                 <div class="max-w-7xl mx-auto px-4">
-                    <div class="grid md:grid-cols-3 gap-8 -mt-24 relative z-20">
-                        <div class="bg-white p-8 shadow-lg border-t-4 border-gazi-red text-center">
+                    <!-- Mobilde normal akış (mt-8), Masaüstünde yukarı kaydırma (-mt-24) -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-0 md:-mt-24 relative z-20">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-gazi-red text-center rounded-lg md:rounded-none">
                             <div class="text-4xl text-gazi-red mb-4"><i class="fas fa-certificate"></i></div>
                             <h3 class="text-xl font-bold mb-2">Yetkili Bayi Güvencesi</h3>
                             <p class="text-gray-600 text-sm">Satın aldığınız tüm ResMed, Philips ve Löwenstein cihazları 2 yıl resmi distribütör garantilidir.</p>
                         </div>
-                        <div class="bg-gazi-red p-8 shadow-lg text-white text-center">
+                        <div class="bg-gazi-red p-8 shadow-lg text-white text-center rounded-lg md:rounded-none">
                             <div class="text-4xl text-white mb-4"><i class="fas fa-headset"></i></div>
                             <h3 class="text-xl font-bold mb-2">7/24 Teknik Destek</h3>
                             <p class="text-white/90 text-sm">Cihaz kurulumu, maske uyumu ve acil durumlarda kesintisiz destek hattı.</p>
                         </div>
-                        <div class="bg-white p-8 shadow-lg border-t-4 border-gazi-dark text-center">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-gazi-dark text-center rounded-lg md:rounded-none">
                             <div class="text-4xl text-gazi-dark mb-4"><i class="fas fa-shipping-fast"></i></div>
                             <h3 class="text-xl font-bold mb-2">Hızlı Teslimat</h3>
                             <p class="text-gray-600 text-sm">Gaziantep içi aynı gün teslimat ve yerinde uygulamalı eğitim hizmeti.</p>
@@ -172,12 +190,12 @@
             </section>
 
             <!-- Markalarımız Bölümü -->
-            <section class="py-16 bg-gray-50">
+            <section class="py-12 md:py-16 bg-gray-50">
                 <div class="max-w-7xl mx-auto px-4">
                     <div class="text-center mb-12">
                         <h2 class="text-3xl font-bold text-gazi-dark">Markalarımız</h2>
                         <div class="w-16 h-1 bg-gazi-red mx-auto mt-3"></div>
-                        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                        <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-sm md:text-base">
                             Gazişehir Medikal olarak, solunum tedavisinde dünya standardını belirleyen <strong class="text-gazi-dark">ResMed</strong>, <strong class="text-gazi-dark">Philips Respironics</strong> ve <strong class="text-gazi-dark">Löwenstein (Weinmann)</strong> markalarının <span class="text-gazi-red font-bold underline">Yetkili Bayisi</span> olarak hizmet vermekteyiz.
                         </p>
                     </div>
@@ -345,7 +363,7 @@
                 </div>
             </div>
             <div class="max-w-7xl mx-auto px-4 py-16">
-                <div class="grid md:grid-cols-2 gap-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div class="space-y-8">
                         <div>
                             <h3 class="text-xl font-bold text-gazi-dark mb-4">Adres Bilgileri</h3>
@@ -366,14 +384,14 @@
                         <div class="bg-blue-50 p-6 rounded border-l-4 border-blue-500">
                             <h4 class="font-bold text-blue-800 mb-2">WhatsApp Destek Hattı</h4>
                             <p class="text-blue-700 text-sm mb-4">Mesai saatleri dışında acil durumlar için WhatsApp hattımızdan bize ulaşabilirsiniz.</p>
-                            <a href="https://wa.me/905550000000" class="inline-block bg-green-500 text-white px-4 py-2 rounded font-bold hover:bg-green-600 transition">
+                            <a href="https://wa.me/905550000000" class="inline-block w-full text-center sm:w-auto bg-green-500 text-white px-4 py-2 rounded font-bold hover:bg-green-600 transition">
                                 <i class="fab fa-whatsapp mr-2"></i> Mesaj Gönder
                             </a>
                         </div>
                     </div>
                     
                     <!-- Harita Alanı -->
-                    <div class="h-[400px] bg-gray-200 rounded shadow-inner">
+                    <div class="h-[300px] md:h-[400px] bg-gray-200 rounded shadow-inner">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50893.77448831411!2d37.33827606626888!3d37.05872856012423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1531e6b3b2465969%3A0x6b4887326b911764!2sGaziantep%2C%20Gaziantep%20Havaliman%C4%B1%20(GZT)!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
@@ -385,7 +403,7 @@
     <!-- Footer -->
     <footer class="bg-gazi-dark text-white py-12 border-t-4 border-gazi-red">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8 text-sm">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-center md:text-left">
                 <div>
                     <h4 class="text-lg font-bold mb-4">GAZİŞEHİR MEDİKAL</h4>
                     <p class="text-gray-400">ResMed, Philips ve Löwenstein markalarının Gaziantep yetkili bayisi. Güvenilir sağlık çözümleri.</p>
@@ -400,7 +418,7 @@
                 </div>
                 <div>
                     <h4 class="text-lg font-bold mb-4">BİZİ TAKİP EDİN</h4>
-                    <div class="flex space-x-4">
+                    <div class="flex justify-center md:justify-start space-x-4">
                         <a href="#" class="w-10 h-10 bg-gray-800 flex items-center justify-center rounded hover:bg-gazi-red transition"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="w-10 h-10 bg-gray-800 flex items-center justify-center rounded hover:bg-gazi-red transition"><i class="fab fa-instagram"></i></a>
                     </div>
