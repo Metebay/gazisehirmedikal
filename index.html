@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gazişehir Medikal | Profesyonel Solunum Çözümleri</title>
+    <title>Gazişehir Medikal | Solunum Cihazları Satış ve Destek</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,514 +12,425 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand-primary': '#CE1126', // Logodaki Kırmızı/Turuncu Tonu (Yaklaşık)
-                        'brand-secondary': '#111827', // Logodaki Siyah/Koyu Ton
-                        'brand-light': '#F3F4F6',
+                        'gazi-red': '#D61F26',   /* Logodaki Kırmızı */
+                        'gazi-dark': '#1A1A1A',  /* Logodaki Siyah */
+                        'gazi-gray': '#F5F5F5',  /* Açık Gri Zemin */
                     },
                     fontFamily: {
-                        'poppins': ['Poppins', 'sans-serif'],
+                        'sans': ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts (Open Sans - Okunaklı ve Kurumsal) -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        body { font-family: 'Poppins', sans-serif; }
-        
-        /* Nabız Animasyonu */
-        @keyframes pulse-ring {
-            0% { transform: scale(0.33); }
-            80%, 100% { opacity: 0; }
-        }
-        @keyframes pulse-dot {
-            0% { transform: scale(0.8); }
-            50% { transform: scale(1); }
-            100% { transform: scale(0.8); }
-        }
-        .pulse-icon { position: relative; }
-        .pulse-icon:before {
-            content: '';
-            position: absolute;
-            left: -10px; top: -10px; right: -10px; bottom: -10px;
-            border-radius: 50%;
-            border: 2px solid #CE1126;
-            animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
-        }
-
-        .fade-in { animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body { font-family: 'Open Sans', sans-serif; }
         .hidden-page { display: none; }
+        .fade-in { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #CE1126; border-radius: 4px; }
+        /* Klasik Buton Stili */
+        .btn-primary {
+            background-color: #D61F26;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        .btn-primary:hover { background-color: #b0151b; }
+
+        .btn-outline {
+            border: 2px solid #1A1A1A;
+            color: #1A1A1A;
+            padding: 10px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        .btn-outline:hover { background-color: #1A1A1A; color: white; }
     </style>
 </head>
 <body class="bg-white text-gray-800 flex flex-col min-h-screen">
 
-    <!-- Top Bar (İletişim Şeridi) -->
-    <div class="bg-brand-secondary text-white py-2 text-xs md:text-sm">
+    <!-- Üst Bilgi Çubuğu (Gri) -->
+    <div class="bg-gray-100 border-b border-gray-200 py-2 text-sm text-gray-600 hidden md:block">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <a href="mailto:info@gazisehirmedikal.com" class="hover:text-brand-primary transition"><i class="fas fa-envelope mr-2"></i>info@gazisehirmedikal.com</a>
-                <span class="hidden md:inline">|</span>
-                <span class="hidden md:inline"><i class="fas fa-map-marker-alt mr-2"></i>Şehitkamil, Gaziantep</span>
+            <div class="flex space-x-6">
+                <span><i class="fas fa-phone-alt text-gazi-red mr-2"></i>+90 (342) 000 00 00</span>
+                <span><i class="fas fa-envelope text-gazi-red mr-2"></i>info@gazisehirmedikal.com</span>
             </div>
-            <div class="flex items-center space-x-3">
-                <span>Bizi Takip Edin:</span>
-                <a href="#" class="hover:text-brand-primary transition"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="hover:text-brand-primary transition"><i class="fab fa-instagram"></i></a>
+            <div>
+                <span><i class="fas fa-clock text-gazi-red mr-2"></i>Çalışma Saatleri: 09:00 - 18:00</span>
             </div>
         </div>
     </div>
 
-    <!-- Modern Navbar -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <!-- Logo ve Ana Menü -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo Alanı -->
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
                 <div class="flex items-center cursor-pointer" onclick="showPage('home')">
-                    <!-- Logo Görseli -->
-                    <img src="https://i.hizliresim.com/m20r94e.png" alt="Gazişehir Logo" class="h-10 md:h-12 mr-3"> 
-                    <div class="flex flex-col">
-                        <span class="text-xl md:text-2xl font-bold text-brand-secondary tracking-tight">GAZİŞEHİR</span>
-                        <span class="text-[10px] md:text-xs text-brand-primary font-semibold tracking-[0.2em] uppercase">Medikal Sistemler</span>
-                    </div>
+                    <img src="https://i.hizliresim.com/m20r94e.png" alt="Gazişehir Medikal" class="h-16">
                 </div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <button onclick="showPage('home')" id="nav-home" class="font-medium hover:text-brand-primary transition border-b-2 border-transparent hover:border-brand-primary py-2">Anasayfa</button>
-                    <button onclick="showPage('corporate')" id="nav-corporate" class="font-medium hover:text-brand-primary transition border-b-2 border-transparent hover:border-brand-primary py-2">Kurumsal</button>
-                    <button onclick="showPage('products')" id="nav-products" class="font-medium hover:text-brand-primary transition border-b-2 border-transparent hover:border-brand-primary py-2">Ürünler</button>
-                    <button onclick="showPage('contact')" id="nav-contact" class="font-medium hover:text-brand-primary transition border-b-2 border-transparent hover:border-brand-primary py-2">İletişim</button>
-                    
-                    <a href="tel:+905550000000" class="bg-brand-secondary text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-brand-primary transition shadow-lg flex items-center transform hover:scale-105 duration-200">
-                        <i class="fas fa-phone mr-2 animate-pulse"></i> 0555 000 00 00
-                    </a>
-                </div>
+                <!-- Desktop Menü -->
+                <nav class="hidden md:flex space-x-8">
+                    <button onclick="showPage('home')" id="nav-home" class="text-gray-700 font-semibold hover:text-gazi-red transition border-b-2 border-transparent py-2">ANASAYFA</button>
+                    <button onclick="showPage('corporate')" id="nav-corporate" class="text-gray-700 font-semibold hover:text-gazi-red transition border-b-2 border-transparent py-2">KURUMSAL</button>
+                    <button onclick="showPage('products')" id="nav-products" class="text-gray-700 font-semibold hover:text-gazi-red transition border-b-2 border-transparent py-2">ÜRÜNLER</button>
+                    <button onclick="showPage('contact')" id="nav-contact" class="text-gray-700 font-semibold hover:text-gazi-red transition border-b-2 border-transparent py-2">İLETİŞİM</button>
+                </nav>
 
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden text-brand-secondary text-2xl" onclick="toggleMobileMenu()">
+                <!-- Mobil Menü Butonu -->
+                <button class="md:hidden text-2xl text-gazi-dark" onclick="toggleMenu()">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
-            <div class="flex flex-col p-4 space-y-3">
-                <button onclick="showPage('home')" class="text-left font-medium p-2 hover:bg-gray-50 rounded">Anasayfa</button>
-                <button onclick="showPage('corporate')" class="text-left font-medium p-2 hover:bg-gray-50 rounded">Kurumsal</button>
-                <button onclick="showPage('products')" class="text-left font-medium p-2 hover:bg-gray-50 rounded">Ürünler</button>
-                <button onclick="showPage('contact')" class="text-left font-medium p-2 hover:bg-gray-50 rounded">İletişim</button>
+        
+        <!-- Mobil Menü Açılır -->
+        <div id="mobile-menu" class="hidden bg-white border-t md:hidden">
+            <div class="flex flex-col p-4 space-y-2">
+                <button onclick="showPage('home')" class="text-left py-2 font-semibold">ANASAYFA</button>
+                <button onclick="showPage('corporate')" class="text-left py-2 font-semibold">KURUMSAL</button>
+                <button onclick="showPage('products')" class="text-left py-2 font-semibold">ÜRÜNLER</button>
+                <button onclick="showPage('contact')" class="text-left py-2 font-semibold">İLETİŞİM</button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- MAIN CONTENT AREA -->
+    <!-- SAYFA İÇERİKLERİ -->
     <main class="flex-grow">
-        
-        <!-- === PAGE: HOME === -->
+
+        <!-- === ANASAYFA === -->
         <div id="page-home" class="page-section fade-in">
-            <!-- Modern Split Hero -->
-            <section class="relative bg-brand-light overflow-hidden">
-                <div class="absolute right-0 top-0 w-1/2 h-full bg-brand-primary/5 skew-x-12 hidden lg:block"></div>
-                
-                <div class="max-w-7xl mx-auto px-4 py-16 md:py-24 lg:py-32 flex flex-col-reverse lg:flex-row items-center relative z-10">
-                    <div class="lg:w-1/2 mt-12 lg:mt-0">
-                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-red-100 text-brand-primary text-sm font-semibold mb-6">
-                            <span class="w-2 h-2 rounded-full bg-brand-primary mr-2"></span> Gaziantep'in Güvenilir Markası
-                        </div>
-                        <h1 class="text-4xl lg:text-6xl font-bold text-brand-secondary leading-tight mb-6">
-                            Sağlıklı Bir Nefes, <br>
-                            <span class="text-brand-primary">Mutlu Bir Yaşam.</span>
-                        </h1>
-                        <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
-                            En son teknoloji solunum cihazları ve medikal ekipmanlar ile evde sağlık konforunu artırıyoruz. Satış, kiralama ve teknik servis hizmetlerimizle yanınızdayız.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <button onclick="showPage('products')" class="bg-brand-primary text-white px-8 py-4 rounded-lg font-bold shadow-lg hover:bg-red-700 transition transform hover:-translate-y-1">
-                                Ürünleri Keşfet
-                            </button>
-                            <a href="https://wa.me/905550000000" class="bg-white text-brand-secondary border-2 border-brand-secondary px-8 py-4 rounded-lg font-bold hover:bg-brand-secondary hover:text-white transition transform hover:-translate-y-1">
-                                WhatsApp Destek
+            <!-- Hero Slider Benzeri Alan -->
+            <section class="relative bg-gazi-dark text-white h-[500px] flex items-center">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Medikal" class="w-full h-full object-cover opacity-30">
+                </div>
+                <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
+                    <div class="max-w-2xl border-l-4 border-gazi-red pl-6">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Solunum Sağlığınız<br>Güvence Altında</h1>
+                        <p class="text-lg text-gray-300 mb-8">Gaziantep'in en kapsamlı medikal cihaz tedarikçisi. Oksijen konsantratörleri, CPAP cihazları ve teknik servis hizmeti.</p>
+                        <div class="flex gap-4">
+                            <button onclick="showPage('products')" class="btn-primary">ÜRÜNLERİ İNCELE</button>
+                            <a href="https://wa.me/905550000000" class="border-2 border-white text-white px-6 py-3 rounded hover:bg-white hover:text-black transition uppercase font-bold text-sm tracking-wide">
+                                <i class="fab fa-whatsapp mr-2"></i> WhatsApp Destek
                             </a>
                         </div>
-                        
-                        <!-- Trust Indicators -->
-                        <div class="mt-12 flex items-center gap-6 text-gray-500 text-sm font-medium">
-                            <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Bakanlık Onaylı</div>
-                            <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> 2 Yıl Garanti</div>
-                            <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> 7/24 Destek</div>
-                        </div>
-                    </div>
-                    
-                    <div class="lg:w-1/2 relative">
-                        <!-- Hero Image & Elements -->
-                        <div class="relative z-10">
-                            <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Solunum Cihazı" class="rounded-2xl shadow-2xl w-full object-cover h-[400px] lg:h-[500px]">
-                            <!-- Floating Card -->
-                            <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl hidden md:block">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-xl pulse-icon">
-                                        <i class="fas fa-phone-volume"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs text-gray-500 uppercase font-bold">Acil Destek Hattı</p>
-                                        <p class="text-lg font-bold text-brand-secondary">0555 000 00 00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Decorative Blob -->
-                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-100/50 rounded-full filter blur-3xl -z-10"></div>
                     </div>
                 </div>
             </section>
 
-            <!-- Services Grid -->
-            <section class="py-20 bg-white">
+            <!-- 3 Kutu Hizmetler -->
+            <section class="py-16 bg-white">
                 <div class="max-w-7xl mx-auto px-4">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl font-bold text-brand-secondary">Hizmetlerimiz</h2>
-                        <div class="w-20 h-1 bg-brand-primary mx-auto mt-4 rounded-full"></div>
+                    <div class="grid md:grid-cols-3 gap-8 -mt-24 relative z-20">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-gazi-red text-center">
+                            <div class="text-4xl text-gazi-red mb-4"><i class="fas fa-box-open"></i></div>
+                            <h3 class="text-xl font-bold mb-2">Satış ve Kiralama</h3>
+                            <p class="text-gray-600 text-sm">İhtiyacınıza uygun cihazı ister satın alın, ister uygun koşullarla kiralayın.</p>
+                        </div>
+                        <div class="bg-gazi-red p-8 shadow-lg text-white text-center">
+                            <div class="text-4xl text-white mb-4"><i class="fas fa-headset"></i></div>
+                            <h3 class="text-xl font-bold mb-2">7/24 Teknik Destek</h3>
+                            <p class="text-white/90 text-sm">Cihaz kurulumu, maske uyumu ve acil durumlarda kesintisiz destek hattı.</p>
+                        </div>
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-gazi-dark text-center">
+                            <div class="text-4xl text-gazi-dark mb-4"><i class="fas fa-shipping-fast"></i></div>
+                            <h3 class="text-xl font-bold mb-2">Hızlı Teslimat</h3>
+                            <p class="text-gray-600 text-sm">Gaziantep içi aynı gün teslimat ve yerinde uygulamalı eğitim hizmeti.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Öne Çıkan Ürün Kategorileri -->
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gazi-dark">Ürün Kategorileri</h2>
+                        <div class="w-16 h-1 bg-gazi-red mx-auto mt-3"></div>
                     </div>
                     
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <!-- Service 1 -->
-                        <div class="group p-8 rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-2xl hover:border-brand-primary/30 transition duration-300 relative overflow-hidden">
-                            <div class="absolute top-0 right-0 w-24 h-24 bg-brand-primary/5 rounded-bl-full -mr-4 -mt-4 transition group-hover:bg-brand-primary/10"></div>
-                            <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center text-brand-primary text-2xl mb-6 group-hover:scale-110 transition">
-                                <i class="fas fa-stethoscope"></i>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="bg-white p-6 text-center hover:shadow-xl transition cursor-pointer group" onclick="showPage('products')">
+                            <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gazi-red group-hover:text-white transition">
+                                <i class="fas fa-wind text-2xl"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-brand-secondary mb-3">Cihaz Satış & Kiralama</h3>
-                            <p class="text-gray-500 mb-4">Oksijen konsantratörü ve solunum cihazlarında uygun fiyatlı satış ve kiralama seçenekleri.</p>
-                            <a href="#" onclick="showPage('products')" class="text-brand-primary font-semibold hover:underline">İncele <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                            <h4 class="font-bold text-gray-800">Oksijen Cihazları</h4>
                         </div>
-
-                        <!-- Service 2 -->
-                        <div class="group p-8 rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-2xl hover:border-brand-primary/30 transition duration-300 relative overflow-hidden">
-                            <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-4 -mt-4 transition group-hover:bg-blue-100"></div>
-                            <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 text-2xl mb-6 group-hover:scale-110 transition">
-                                <i class="fas fa-tools"></i>
+                        <div class="bg-white p-6 text-center hover:shadow-xl transition cursor-pointer group" onclick="showPage('products')">
+                            <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gazi-red group-hover:text-white transition">
+                                <i class="fas fa-bed text-2xl"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-brand-secondary mb-3">Teknik Servis & Bakım</h3>
-                            <p class="text-gray-500 mb-4">Cihazlarınızın periyodik bakımı, filtre değişimi ve arıza onarımı uzman ekibimizce yapılır.</p>
-                            <a href="#" onclick="showPage('contact')" class="text-blue-600 font-semibold hover:underline">Randevu Al <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                            <h4 class="font-bold text-gray-800">Uyku (CPAP/BPAP)</h4>
                         </div>
-
-                        <!-- Service 3 -->
-                        <div class="group p-8 rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-2xl hover:border-brand-primary/30 transition duration-300 relative overflow-hidden">
-                            <div class="absolute top-0 right-0 w-24 h-24 bg-green-50 rounded-bl-full -mr-4 -mt-4 transition group-hover:bg-green-100"></div>
-                            <div class="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center text-green-600 text-2xl mb-6 group-hover:scale-110 transition">
-                                <i class="fas fa-user-nurse"></i>
+                        <div class="bg-white p-6 text-center hover:shadow-xl transition cursor-pointer group" onclick="showPage('products')">
+                            <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gazi-red group-hover:text-white transition">
+                                <i class="fas fa-mask text-2xl"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-brand-secondary mb-3">7/24 Danışmanlık</h3>
-                            <p class="text-gray-500 mb-4">Cihaz kullanımı ve hasta takibi konusunda kesintisiz telefon desteği sağlıyoruz.</p>
-                            <a href="tel:+905550000000" class="text-green-600 font-semibold hover:underline">Hemen Ara <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                            <h4 class="font-bold text-gray-800">Maske & Aksesuar</h4>
+                        </div>
+                        <div class="bg-white p-6 text-center hover:shadow-xl transition cursor-pointer group" onclick="showPage('products')">
+                            <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gazi-red group-hover:text-white transition">
+                                <i class="fas fa-hospital text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800">Hastane Ekipmanı</h4>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
 
-        <!-- === PAGE: CORPORATE === -->
+        <!-- === KURUMSAL === -->
         <div id="page-corporate" class="page-section hidden-page fade-in">
-            <div class="bg-brand-secondary text-white py-20 relative overflow-hidden">
-                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/medical-icons.png')] opacity-5"></div>
-                <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
-                    <h1 class="text-4xl font-bold mb-4">Hakkımızda</h1>
-                    <p class="text-gray-300 max-w-2xl mx-auto">Gaziantep'ten bölgeye yayılan sağlık güvencesi.</p>
-                </div>
-            </div>
-            
-            <div class="max-w-7xl mx-auto px-4 py-20">
-                <div class="flex flex-col md:flex-row items-start gap-12">
-                    <div class="md:w-1/2 sticky top-24">
-                        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="rounded-2xl shadow-2xl w-full" alt="Ofis">
-                        <div class="absolute -bottom-6 -right-6 bg-brand-primary text-white p-8 rounded-xl hidden md:block">
-                            <p class="text-3xl font-bold">10+</p>
-                            <p class="text-sm opacity-90">Yıllık Tecrübe</p>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 space-y-6">
-                        <h2 class="text-3xl font-bold text-brand-secondary">Gazişehir Medikal Kimdir?</h2>
-                        <p class="text-gray-600 leading-relaxed">
-                            Gazişehir Medikal, insan sağlığını en yüce değer kabul eden bir anlayışla Gaziantep'te kurulmuştur. Solunum yetmezliği ve uyku apnesi gibi kronik rahatsızlıkları olan hastaların yaşam kalitesini artırmak için dünya standartlarında medikal cihaz çözümleri sunuyoruz.
-                        </p>
-                        <p class="text-gray-600 leading-relaxed">
-                            Sadece bir cihaz tedarikçisi değil, aynı zamanda hastalarımızın tedavi süreçlerinde güvenilir bir yol arkadaşıyız. Satış öncesi doğru cihaz seçimi ve satış sonrası teknik destek hizmetlerimizle fark yaratıyoruz.
-                        </p>
-                        
-                        <div class="grid grid-cols-2 gap-6 mt-8">
-                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-brand-primary">
-                                <h4 class="font-bold text-brand-secondary mb-1">Vizyonumuz</h4>
-                                <p class="text-sm text-gray-500">Bölgenin en güvenilir ve yenilikçi medikal firması olmak.</p>
-                            </div>
-                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-brand-secondary">
-                                <h4 class="font-bold text-brand-secondary mb-1">Misyonumuz</h4>
-                                <p class="text-sm text-gray-500">Her hastaya doğru cihazı, en ulaşılabilir şartlarda sunmak.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- === PAGE: PRODUCTS === -->
-        <div id="page-products" class="page-section hidden-page fade-in">
-            <div class="bg-gray-100 py-12">
+            <div class="bg-gray-100 py-12 border-b">
                 <div class="max-w-7xl mx-auto px-4">
-                    <h1 class="text-3xl font-bold text-brand-secondary mb-2">Ürün Kataloğu</h1>
-                    <p class="text-gray-600">İhtiyacınız olan medikal çözümleri aşağıda bulabilirsiniz.</p>
+                    <h1 class="text-3xl font-bold text-gazi-dark">Hakkımızda</h1>
+                    <p class="text-gray-600 mt-2">Gazişehir Medikal & Sağlık Hizmetleri</p>
                 </div>
             </div>
-
-            <section class="py-16 max-w-7xl mx-auto px-4">
-                <!-- Categories (Tab Style) -->
-                <div class="flex overflow-x-auto space-x-2 mb-10 pb-4 no-scrollbar">
-                    <button class="px-6 py-2 bg-brand-secondary text-white rounded-full text-sm font-medium whitespace-nowrap">Tümü</button>
-                    <button class="px-6 py-2 bg-white text-gray-600 border border-gray-200 rounded-full text-sm font-medium hover:border-brand-primary hover:text-brand-primary transition whitespace-nowrap">Oksijen Konsantratörleri</button>
-                    <button class="px-6 py-2 bg-white text-gray-600 border border-gray-200 rounded-full text-sm font-medium hover:border-brand-primary hover:text-brand-primary transition whitespace-nowrap">CPAP/BPAP</button>
-                    <button class="px-6 py-2 bg-white text-gray-600 border border-gray-200 rounded-full text-sm font-medium hover:border-brand-primary hover:text-brand-primary transition whitespace-nowrap">Nebulizatörler</button>
-                    <button class="px-6 py-2 bg-white text-gray-600 border border-gray-200 rounded-full text-sm font-medium hover:border-brand-primary hover:text-brand-primary transition whitespace-nowrap">Maskeler</button>
-                </div>
-
-                <!-- Products Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Product 1 -->
-                    <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
-                        <div class="relative h-64 bg-gray-50 flex items-center justify-center p-6">
-                            <!-- Image Placeholder with Icon -->
-                            <i class="fas fa-wind text-6xl text-gray-300 group-hover:text-brand-primary transition duration-500 transform group-hover:scale-110"></i>
-                            <div class="absolute top-4 right-4 bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">Stokta</div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg text-brand-secondary mb-2">Ev Tipi Oksijen Cihazı</h3>
-                            <p class="text-gray-500 text-sm mb-4 line-clamp-2">5L kapasiteli, sessiz çalışan, enerji tasarruflu ve hafif model.</p>
-                            <div class="flex items-center justify-between mt-4">
-                                <button onclick="openModal('Oksijen Cihazı')" class="text-brand-primary font-semibold text-sm hover:underline">Detayları Gör</button>
-                                <button onclick="openModal('Oksijen Cihazı')" class="w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center hover:bg-red-700 transition"><i class="fas fa-plus"></i></button>
-                            </div>
-                        </div>
+            <div class="max-w-7xl mx-auto px-4 py-16">
+                <div class="flex flex-col md:flex-row gap-12">
+                    <div class="md:w-1/2">
+                        <h2 class="text-2xl font-bold mb-4 text-gazi-red">"Nefes Aldıran Çözümler"</h2>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            2010 yılından bu yana Gaziantep'te faaliyet gösteren Gazişehir Medikal, solunum cihazları konusunda uzmanlaşmış köklü bir kuruluştur. Amacımız, hastalarımızın yaşam kalitesini artırmak için en doğru cihazı, en uygun koşullarda sunmaktır.
+                        </p>
+                        <p class="text-gray-700 mb-6 leading-relaxed">
+                            Firmamız, sadece satış odaklı değil, satış sonrası hizmet kalitesiyle de bölgede güven kazanmıştır. Teknik servis ekibimiz, cihazlarınızın periyodik bakımını titizlikle yapmaktadır.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><i class="fas fa-check text-gazi-red mr-3"></i> T.C. Sağlık Bakanlığı Onaylı Ürünler</li>
+                            <li class="flex items-center"><i class="fas fa-check text-gazi-red mr-3"></i> Yerinde Kurulum ve Eğitim Hizmeti</li>
+                            <li class="flex items-center"><i class="fas fa-check text-gazi-red mr-3"></i> SGK Anlaşmalı Cihaz Temini</li>
+                        </ul>
                     </div>
-
-                    <!-- Product 2 -->
-                    <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
-                        <div class="relative h-64 bg-gray-50 flex items-center justify-center p-6">
-                            <i class="fas fa-bed text-6xl text-gray-300 group-hover:text-brand-primary transition duration-500 transform group-hover:scale-110"></i>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg text-brand-secondary mb-2">Otomatik CPAP</h3>
-                            <p class="text-gray-500 text-sm mb-4 line-clamp-2">Uyku apnesi için otomatik basınç ayarlı, nemlendiricili cihaz.</p>
-                            <div class="flex items-center justify-between mt-4">
-                                <button onclick="openModal('CPAP')" class="text-brand-primary font-semibold text-sm hover:underline">Detayları Gör</button>
-                                <button onclick="openModal('CPAP')" class="w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center hover:bg-red-700 transition"><i class="fas fa-plus"></i></button>
-                            </div>
-                        </div>
-                    </div>
-
-                     <!-- Product 3 -->
-                     <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
-                        <div class="relative h-64 bg-gray-50 flex items-center justify-center p-6">
-                            <i class="fas fa-lungs text-6xl text-gray-300 group-hover:text-brand-primary transition duration-500 transform group-hover:scale-110"></i>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg text-brand-secondary mb-2">Taşınabilir Nebulizatör</h3>
-                            <p class="text-gray-500 text-sm mb-4 line-clamp-2">Şarjlı, sessiz mesh teknolojili cep tipi nebulizatör.</p>
-                            <div class="flex items-center justify-between mt-4">
-                                <button onclick="openModal('Nebulizatör')" class="text-brand-primary font-semibold text-sm hover:underline">Detayları Gör</button>
-                                <button onclick="openModal('Nebulizatör')" class="w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center hover:bg-red-700 transition"><i class="fas fa-plus"></i></button>
-                            </div>
-                        </div>
-                    </div>
-
-                     <!-- Product 4 -->
-                     <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
-                        <div class="relative h-64 bg-gray-50 flex items-center justify-center p-6">
-                            <i class="fas fa-mask text-6xl text-gray-300 group-hover:text-brand-primary transition duration-500 transform group-hover:scale-110"></i>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg text-brand-secondary mb-2">CPAP Maskesi</h3>
-                            <p class="text-gray-500 text-sm mb-4 line-clamp-2">Burun ve tam yüz (Full Face) silikon maske çeşitleri.</p>
-                            <div class="flex items-center justify-between mt-4">
-                                <button onclick="openModal('Maske')" class="text-brand-primary font-semibold text-sm hover:underline">Detayları Gör</button>
-                                <button onclick="openModal('Maske')" class="w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center hover:bg-red-700 transition"><i class="fas fa-plus"></i></button>
-                            </div>
-                        </div>
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2187d80a1b9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Ofis" class="rounded shadow-lg w-full">
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
 
-        <!-- === PAGE: CONTACT === -->
-        <div id="page-contact" class="page-section hidden-page fade-in">
-             <div class="bg-brand-secondary text-white py-20 text-center">
-                <h1 class="text-4xl font-bold mb-4">İletişime Geçin</h1>
-                <p class="text-gray-300">Size nasıl yardımcı olabiliriz?</p>
+        <!-- === ÜRÜNLER === -->
+        <div id="page-products" class="page-section hidden-page fade-in">
+            <div class="bg-gazi-dark text-white py-12">
+                <div class="max-w-7xl mx-auto px-4 text-center">
+                    <h1 class="text-3xl font-bold">Ürünlerimiz</h1>
+                    <p class="text-gray-400 mt-2">Kaliteli ve Garantili Medikal Cihazlar</p>
+                </div>
             </div>
             
-            <section class="max-w-7xl mx-auto px-4 py-16">
-                <div class="grid lg:grid-cols-3 gap-8">
-                    <!-- Contact Cards -->
-                    <div class="col-span-1 space-y-4">
-                        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-brand-primary flex items-start gap-4">
-                            <div class="bg-red-50 p-3 rounded-full text-brand-primary"><i class="fas fa-phone-alt"></i></div>
-                            <div>
-                                <h4 class="font-bold text-brand-secondary">Telefon</h4>
-                                <p class="text-gray-600">+90 342 000 00 00</p>
-                                <p class="text-gray-500 text-xs mt-1">Hafta içi: 09:00 - 18:00</p>
-                            </div>
+            <div class="max-w-7xl mx-auto px-4 py-16">
+                <!-- Ürün Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Ürün 1 -->
+                    <div class="border border-gray-200 rounded hover:shadow-xl transition bg-white">
+                        <div class="h-64 bg-gray-100 flex items-center justify-center p-4 border-b">
+                            <i class="fas fa-wind text-6xl text-gray-300"></i>
                         </div>
-                        
-                        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-green-500 flex items-start gap-4">
-                            <div class="bg-green-50 p-3 rounded-full text-green-600"><i class="fab fa-whatsapp"></i></div>
-                            <div>
-                                <h4 class="font-bold text-brand-secondary">WhatsApp Destek</h4>
-                                <p class="text-gray-600">+90 555 000 00 00</p>
-                                <p class="text-gray-500 text-xs mt-1">7/24 Mesaj Gönderebilirsiniz</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-brand-secondary flex items-start gap-4">
-                            <div class="bg-gray-100 p-3 rounded-full text-brand-secondary"><i class="fas fa-map-marker-alt"></i></div>
-                            <div>
-                                <h4 class="font-bold text-brand-secondary">Adres</h4>
-                                <p class="text-gray-600 text-sm">Batıkent Mah. Kürşat Tüzmen Blv. No:12/A Şehitkamil / GAZİANTEP</p>
-                            </div>
+                        <div class="p-6">
+                            <div class="text-xs text-gazi-red font-bold uppercase mb-2">Oksijen Grubu</div>
+                            <h3 class="text-xl font-bold mb-3 text-gazi-dark">5L Oksijen Konsantratörü</h3>
+                            <p class="text-gray-600 text-sm mb-4">Ev tipi kullanım için ideal, sessiz çalışan, düşük enerji tüketimli oksijen cihazı.</p>
+                            <button onclick="openModal('5L Oksijen Cihazı')" class="w-full btn-outline">DETAYLI BİLGİ AL</button>
                         </div>
                     </div>
 
-                    <!-- Map -->
-                    <div class="col-span-2 bg-gray-200 rounded-xl overflow-hidden min-h-[400px] shadow-inner relative">
+                    <!-- Ürün 2 -->
+                    <div class="border border-gray-200 rounded hover:shadow-xl transition bg-white">
+                        <div class="h-64 bg-gray-100 flex items-center justify-center p-4 border-b">
+                            <i class="fas fa-bed text-6xl text-gray-300"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-xs text-gazi-red font-bold uppercase mb-2">Uyku Grubu</div>
+                            <h3 class="text-xl font-bold mb-3 text-gazi-dark">Otomatik CPAP Cihazı</h3>
+                            <p class="text-gray-600 text-sm mb-4">Uyku apnesi tedavisinde konforlu solunum sağlayan otomatik basınç ayarlı cihaz.</p>
+                            <button onclick="openModal('Otomatik CPAP')" class="w-full btn-outline">DETAYLI BİLGİ AL</button>
+                        </div>
+                    </div>
+
+                    <!-- Ürün 3 -->
+                    <div class="border border-gray-200 rounded hover:shadow-xl transition bg-white">
+                        <div class="h-64 bg-gray-100 flex items-center justify-center p-4 border-b">
+                            <i class="fas fa-lungs text-6xl text-gray-300"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-xs text-gazi-red font-bold uppercase mb-2">Nebulizatör</div>
+                            <h3 class="text-xl font-bold mb-3 text-gazi-dark">Mesh Nebulizatör</h3>
+                            <p class="text-gray-600 text-sm mb-4">Taşınabilir, pilli ve şarjlı seçenekleriyle sessiz çalışan ilaç uygulama cihazı.</p>
+                            <button onclick="openModal('Nebulizatör')" class="w-full btn-outline">DETAYLI BİLGİ AL</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Ürün 4 -->
+                    <div class="border border-gray-200 rounded hover:shadow-xl transition bg-white">
+                        <div class="h-64 bg-gray-100 flex items-center justify-center p-4 border-b">
+                            <i class="fas fa-mask text-6xl text-gray-300"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-xs text-gazi-red font-bold uppercase mb-2">Aksesuar</div>
+                            <h3 class="text-xl font-bold mb-3 text-gazi-dark">CPAP Maskeleri</h3>
+                            <p class="text-gray-600 text-sm mb-4">Burun ve ağız-burun (full face) silikon maske çeşitleri ve hortumları.</p>
+                            <button onclick="openModal('Maske')" class="w-full btn-outline">DETAYLI BİLGİ AL</button>
+                        </div>
+                    </div>
+
+                    <!-- Ürün 5 -->
+                    <div class="border border-gray-200 rounded hover:shadow-xl transition bg-white">
+                        <div class="h-64 bg-gray-100 flex items-center justify-center p-4 border-b">
+                            <i class="fas fa-laptop-medical text-6xl text-gray-300"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-xs text-gazi-red font-bold uppercase mb-2">Hastane</div>
+                            <h3 class="text-xl font-bold mb-3 text-gazi-dark">Hasta Başı Monitörü</h3>
+                            <p class="text-gray-600 text-sm mb-4">Hastane ve evde bakım hastaları için vital bulgu takip monitörleri.</p>
+                            <button onclick="openModal('Monitör')" class="w-full btn-outline">DETAYLI BİLGİ AL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === İLETİŞİM === -->
+        <div id="page-contact" class="page-section hidden-page fade-in">
+            <div class="bg-gray-100 py-12 border-b">
+                <div class="max-w-7xl mx-auto px-4">
+                    <h1 class="text-3xl font-bold text-gazi-dark">İletişim</h1>
+                    <p class="text-gray-600 mt-2">Bize Ulaşın</p>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 py-16">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-gazi-dark mb-4">Adres Bilgileri</h3>
+                            <p class="flex items-start mb-4 text-gray-700">
+                                <i class="fas fa-map-marker-alt mt-1 mr-4 text-gazi-red"></i>
+                                <span>Batıkent Mah. Kürşat Tüzmen Blv. No:12/A<br>Şehitkamil / GAZİANTEP</span>
+                            </p>
+                            <p class="flex items-center mb-4 text-gray-700">
+                                <i class="fas fa-phone mr-4 text-gazi-red"></i>
+                                <span>+90 (342) 000 00 00</span>
+                            </p>
+                            <p class="flex items-center mb-4 text-gray-700">
+                                <i class="fas fa-envelope mr-4 text-gazi-red"></i>
+                                <span>info@gazisehirmedikal.com</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-6 rounded border-l-4 border-blue-500">
+                            <h4 class="font-bold text-blue-800 mb-2">WhatsApp Destek Hattı</h4>
+                            <p class="text-blue-700 text-sm mb-4">Mesai saatleri dışında acil durumlar için WhatsApp hattımızdan bize ulaşabilirsiniz.</p>
+                            <a href="https://wa.me/905550000000" class="inline-block bg-green-500 text-white px-4 py-2 rounded font-bold hover:bg-green-600 transition">
+                                <i class="fab fa-whatsapp mr-2"></i> Mesaj Gönder
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Harita Alanı -->
+                    <div class="h-[400px] bg-gray-200 rounded shadow-inner">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50893.77448831411!2d37.33827606626888!3d37.05872856012423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1531e6b3b2465969%3A0x6b4887326b911764!2sGaziantep%2C%20Gaziantep%20Havaliman%C4%B1%20(GZT)!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
 
     </main>
 
-    <!-- Modern Footer -->
-    <footer class="bg-brand-secondary text-white pt-16 pb-8">
+    <!-- Footer -->
+    <footer class="bg-gazi-dark text-white py-12 border-t-4 border-gazi-red">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-2 mb-4">
-                         <img src="https://i.hizliresim.com/m20r94e.png" alt="Gazişehir Logo" class="h-8 brightness-0 invert opacity-80">
-                         <span class="text-2xl font-bold">GAZİŞEHİR <span class="text-brand-primary">MEDİKAL</span></span>
+            <div class="grid md:grid-cols-3 gap-8 text-sm">
+                <div>
+                    <h4 class="text-lg font-bold mb-4">GAZİŞEHİR MEDİKAL</h4>
+                    <p class="text-gray-400">Gaziantep'te sağlığınız için güvenilir medikal çözümler. Oksijen ve solunum cihazlarında uzman kadro.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">HIZLI MENÜ</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" onclick="showPage('home')" class="hover:text-white">Anasayfa</a></li>
+                        <li><a href="#" onclick="showPage('products')" class="hover:text-white">Ürünlerimiz</a></li>
+                        <li><a href="#" onclick="showPage('contact')" class="hover:text-white">İletişim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">BİZİ TAKİP EDİN</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 flex items-center justify-center rounded hover:bg-gazi-red transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 flex items-center justify-center rounded hover:bg-gazi-red transition"><i class="fab fa-instagram"></i></a>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
-                        Gaziantep'te solunum cihazları, medikal gaz sistemleri ve evde sağlık ürünleri konusunda uzman çözüm ortağınız.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Hızlı Erişim</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="#" onclick="showPage('home')" class="hover:text-brand-primary transition">Anasayfa</a></li>
-                        <li><a href="#" onclick="showPage('corporate')" class="hover:text-brand-primary transition">Hakkımızda</a></li>
-                        <li><a href="#" onclick="showPage('products')" class="hover:text-brand-primary transition">Ürünler</a></li>
-                        <li><a href="#" onclick="showPage('contact')" class="hover:text-brand-primary transition">İletişim</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Yasal</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="#" class="hover:text-brand-primary transition">KVKK Aydınlatma Metni</a></li>
-                        <li><a href="#" class="hover:text-brand-primary transition">Gizlilik Politikası</a></li>
-                        <li><a href="#" class="hover:text-brand-primary transition">Çerez Politikası</a></li>
-                    </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-                <p>&copy; 2025 Gazişehir Medikal. Tüm hakları saklıdır.</p>
-                <div class="mt-2 md:mt-0">Designed for Health.</div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-xs">
+                &copy; 2025 Gazişehir Medikal. Tüm Hakları Saklıdır.
             </div>
         </div>
     </footer>
 
-    <!-- Fixed WhatsApp Button (Floating) -->
-    <a href="https://wa.me/905550000000" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-[#20bd5a] transition transform hover:scale-110 z-50 flex items-center justify-center group">
-        <i class="fab fa-whatsapp text-3xl"></i>
-        <span class="absolute right-full mr-3 bg-white text-gray-800 px-3 py-1 rounded text-sm font-bold shadow-md opacity-0 group-hover:opacity-100 transition whitespace-nowrap pointer-events-none">Bize Yazın</span>
-    </a>
-
-    <!-- Modal (Modern) -->
-    <div id="infoModal" class="fixed inset-0 z-[60] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true" onclick="closeModal()"></div>
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-            <div class="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <div class="sm:flex sm:items-start">
-                        <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                            <i class="fas fa-info text-brand-primary"></i>
-                        </div>
-                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modalTitle">Ürün Bilgisi</h3>
-                            <div class="mt-2">
-                                <p class="text-sm text-gray-500">
-                                    Bu ürünle ilgili güncel stok bilgisi, fiyat teklifi ve teknik özellikler için uzman ekibimizle görüşebilirsiniz.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    <a href="https://wa.me/905550000000" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
-                        <i class="fab fa-whatsapp mr-2 mt-1"></i> WhatsApp
-                    </a>
-                    <a href="tel:+905550000000" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-                        Hemen Ara
-                    </a>
-                    <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onclick="closeModal()">
-                        Kapat
-                    </button>
-                </div>
+    <!-- Modal -->
+    <div id="infoModal" class="fixed inset-0 bg-black/70 hidden z-[100] flex items-center justify-center p-4">
+        <div class="bg-white rounded w-full max-w-md p-6 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-red-600"><i class="fas fa-times text-xl"></i></button>
+            <h3 class="text-xl font-bold mb-4 text-gazi-dark" id="modalTitle">Ürün Bilgisi</h3>
+            <p class="text-gray-600 mb-6">Bu ürün hakkında fiyat ve stok bilgisi almak için lütfen bizimle iletişime geçin.</p>
+            <div class="space-y-3">
+                <a href="tel:+903420000000" class="block w-full bg-gazi-dark text-white text-center py-3 rounded font-bold hover:bg-black transition">HEMEN ARA</a>
+                <a href="https://wa.me/905550000000" class="block w-full bg-green-500 text-white text-center py-3 rounded font-bold hover:bg-green-600 transition"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
     <script>
-        // Sayfa Geçiş
         function showPage(pageId) {
-            document.querySelectorAll('.page-section').forEach(p => p.classList.add('hidden-page'));
+            document.querySelectorAll('.page-section').forEach(el => el.classList.add('hidden-page'));
             document.getElementById('page-' + pageId).classList.remove('hidden-page');
+            document.getElementById('mobile-menu').classList.add('hidden');
             
-            // Nav Active State
-            document.querySelectorAll('nav button[id^="nav-"]').forEach(btn => {
-                btn.classList.remove('text-brand-primary', 'border-brand-primary');
+            // Menü Aktifliği
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('text-gazi-red', 'border-gazi-red');
+                btn.classList.add('text-gray-700', 'border-transparent');
             });
             const activeBtn = document.getElementById('nav-' + pageId);
-            if(activeBtn) activeBtn.classList.add('text-brand-primary', 'border-brand-primary');
-
-            window.scrollTo(0, 0);
-            document.getElementById('mobile-menu').classList.add('hidden');
+            if(activeBtn) {
+                activeBtn.classList.remove('text-gray-700', 'border-transparent');
+                activeBtn.classList.add('text-gazi-red', 'border-gazi-red');
+            }
+            window.scrollTo(0,0);
         }
 
-        // Mobile Menu
-        function toggleMobileMenu() {
+        function toggleMenu() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
-        // Modal
         function openModal(title) {
-            document.getElementById('modalTitle').innerText = title + ' Hakkında Bilgi Al';
+            document.getElementById('modalTitle').innerText = title;
             document.getElementById('infoModal').classList.remove('hidden');
         }
         function closeModal() {
             document.getElementById('infoModal').classList.add('hidden');
         }
 
-        // Init
-        window.onload = () => showPage('home');
+        // Başlangıç
+        showPage('home');
     </script>
 </body>
 </html>
